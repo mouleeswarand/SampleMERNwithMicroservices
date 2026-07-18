@@ -67,5 +67,16 @@ pipeline {
             }
         }
 
+        stage('Deploy to EKS') {
+            steps {
+                sh '''
+                kubectl apply -f k8s/
+                kubectl rollout status deployment/frontend
+                kubectl rollout status deployment/hello-service
+                kubectl rollout status deployment/profile-service
+                '''
+            }
+        }
+
     }
 }
