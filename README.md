@@ -1,4 +1,4 @@
-<img width="1209" height="84" alt="image" src="https://github.com/user-attachments/assets/f7f7b95b-ec62-47cc-8c56-29c7263d89cb" /># Graded Project on Orchestration and Scaling
+# Graded Project on Orchestration and Scaling
 
 ## End-to-End DevOps Pipeline for MERN Streaming Application
 
