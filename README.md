@@ -807,351 +807,15 @@ Login Succeeded
 [Pipeline] sh
 + docker push public.ecr.aws/b5a0w1i5/frontend:latest
 The push refers to repository [public.ecr.aws/b5a0w1i5/frontend]
-78944344b200: Waiting
-46f977ee452f: Waiting
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-390dc935348d: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-78944344b200: Waiting
-46f977ee452f: Waiting
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-390dc935348d: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-46f977ee452f: Waiting
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-390dc935348d: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-78944344b200: Waiting
-d0008c891db4: Waiting
-390dc935348d: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-78944344b200: Waiting
-46f977ee452f: Waiting
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-55afa1ecc21d: Waiting
-78944344b200: Waiting
-46f977ee452f: Waiting
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-390dc935348d: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-46f977ee452f: Waiting
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-390dc935348d: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-78944344b200: Waiting
-62bec68d7c31: Waiting
-78944344b200: Waiting
-46f977ee452f: Waiting
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-390dc935348d: Waiting
-1223f016b4e4: Waiting
-78944344b200: Waiting
-46f977ee452f: Waiting
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-390dc935348d: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-62bec68d7c31: Waiting
-78944344b200: Waiting
-46f977ee452f: Waiting
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-390dc935348d: Waiting
-1223f016b4e4: Waiting
-d0008c891db4: Waiting
-390dc935348d: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-78944344b200: Waiting
-46f977ee452f: Waiting
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-55afa1ecc21d: Waiting
-78944344b200: Waiting
-46f977ee452f: Waiting
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-390dc935348d: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-78944344b200: Waiting
-46f977ee452f: Waiting
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-390dc935348d: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-78944344b200: Waiting
-46f977ee452f: Waiting
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-390dc935348d: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-390dc935348d: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-78944344b200: Waiting
-46f977ee452f: Waiting
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-390dc935348d: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-78944344b200: Waiting
-46f977ee452f: Waiting
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-78944344b200: Waiting
-46f977ee452f: Layer already exists
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-390dc935348d: Layer already exists
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-78944344b200: Waiting
-3cd534fe98c6: Waiting
-46519e7231d2: Waiting
-3cd534fe98c6: Layer already exists
-46519e7231d2: Waiting
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-78944344b200: Waiting
-46519e7231d2: Layer already exists
-55afa1ecc21d: Waiting
-d0008c891db4: Waiting
-1223f016b4e4: Waiting
-62bec68d7c31: Waiting
-78944344b200: Waiting
-1223f016b4e4: Layer already exists
-62bec68d7c31: Layer already exists
-78944344b200: Layer already exists
-55afa1ecc21d: Layer already exists
-d0008c891db4: Layer already exists
 latest: digest: sha256:31df21fa466bc01b9c8093783cfc4c77aa06f2a9ba27b2676b9158398d47b930 size: 2264
 + docker push public.ecr.aws/b5a0w1i5/hello-service:latest
 The push refers to repository [public.ecr.aws/b5a0w1i5/hello-service]
-17d6cbd80642: Waiting
-9c53a4484d07: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-805e4291d2a1: Waiting
-e6f31ffc071e: Waiting
-25db4ba283d7: Waiting
-805e4291d2a1: Waiting
-e6f31ffc071e: Waiting
-17d6cbd80642: Waiting
-9c53a4484d07: Waiting
-abe552397b13: Waiting
-17d6cbd80642: Waiting
-9c53a4484d07: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-805e4291d2a1: Waiting
-e6f31ffc071e: Waiting
-9c53a4484d07: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-805e4291d2a1: Waiting
-e6f31ffc071e: Waiting
-17d6cbd80642: Waiting
-25db4ba283d7: Waiting
-805e4291d2a1: Waiting
-e6f31ffc071e: Waiting
-17d6cbd80642: Waiting
-9c53a4484d07: Waiting
-abe552397b13: Waiting
-17d6cbd80642: Waiting
-9c53a4484d07: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-805e4291d2a1: Waiting
-e6f31ffc071e: Waiting
-e6f31ffc071e: Waiting
-17d6cbd80642: Waiting
-9c53a4484d07: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-805e4291d2a1: Waiting
-17d6cbd80642: Waiting
-9c53a4484d07: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-805e4291d2a1: Waiting
-e6f31ffc071e: Waiting
-25db4ba283d7: Waiting
-805e4291d2a1: Waiting
-e6f31ffc071e: Waiting
-17d6cbd80642: Waiting
-9c53a4484d07: Waiting
-abe552397b13: Waiting
-e6f31ffc071e: Waiting
-17d6cbd80642: Waiting
-9c53a4484d07: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-805e4291d2a1: Waiting
-17d6cbd80642: Waiting
-9c53a4484d07: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Layer already exists
-805e4291d2a1: Waiting
-e6f31ffc071e: Waiting
-17d6cbd80642: Waiting
-9c53a4484d07: Waiting
-abe552397b13: Waiting
-805e4291d2a1: Layer already exists
-e6f31ffc071e: Waiting
-17d6cbd80642: Waiting
-9c53a4484d07: Waiting
-abe552397b13: Waiting
-e6f31ffc071e: Waiting
-17d6cbd80642: Waiting
-9c53a4484d07: Layer already exists
-abe552397b13: Waiting
-e6f31ffc071e: Waiting
-17d6cbd80642: Waiting
-abe552397b13: Waiting
-e6f31ffc071e: Waiting
 17d6cbd80642: Layer already exists
 abe552397b13: Layer already exists
 e6f31ffc071e: Layer already exists
 latest: digest: sha256:fe580801de21ded404eaf366fd7e9321ae7ed8308b32d082d068993cbe3904d3 size: 1617
 + docker push public.ecr.aws/b5a0w1i5/profile-service:latest
 The push refers to repository [public.ecr.aws/b5a0w1i5/profile-service]
-ed868efae640: Waiting
-9c53a4484d07: Waiting
-e6f31ffc071e: Waiting
-d3404ca02858: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-ed868efae640: Waiting
-9c53a4484d07: Waiting
-e6f31ffc071e: Waiting
-d3404ca02858: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-ed868efae640: Waiting
-9c53a4484d07: Waiting
-e6f31ffc071e: Waiting
-d3404ca02858: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-ed868efae640: Waiting
-9c53a4484d07: Waiting
-e6f31ffc071e: Waiting
-d3404ca02858: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-e6f31ffc071e: Waiting
-d3404ca02858: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-ed868efae640: Waiting
-9c53a4484d07: Waiting
-9c53a4484d07: Waiting
-e6f31ffc071e: Waiting
-d3404ca02858: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-ed868efae640: Waiting
-9c53a4484d07: Waiting
-e6f31ffc071e: Waiting
-d3404ca02858: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-ed868efae640: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-ed868efae640: Waiting
-9c53a4484d07: Waiting
-e6f31ffc071e: Waiting
-d3404ca02858: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-ed868efae640: Waiting
-9c53a4484d07: Waiting
-e6f31ffc071e: Waiting
-d3404ca02858: Waiting
-ed868efae640: Waiting
-9c53a4484d07: Waiting
-e6f31ffc071e: Waiting
-d3404ca02858: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-ed868efae640: Waiting
-9c53a4484d07: Waiting
-e6f31ffc071e: Waiting
-d3404ca02858: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-e6f31ffc071e: Waiting
-d3404ca02858: Waiting
-abe552397b13: Waiting
-25db4ba283d7: Waiting
-ed868efae640: Layer already exists
-9c53a4484d07: Waiting
-25db4ba283d7: Waiting
-9c53a4484d07: Waiting
-e6f31ffc071e: Waiting
-d3404ca02858: Waiting
-abe552397b13: Waiting
-9c53a4484d07: Waiting
-e6f31ffc071e: Waiting
-d3404ca02858: Waiting
-abe552397b13: Layer already exists
-25db4ba283d7: Layer already exists
-9c53a4484d07: Waiting
-e6f31ffc071e: Waiting
-d3404ca02858: Waiting
 9c53a4484d07: Layer already exists
 e6f31ffc071e: Layer already exists
 d3404ca02858: Layer already exists
@@ -1658,5 +1322,29 @@ The Amazon CloudWatch Observability Add-on was successfully deployed to the EKS 
 
 ## Deployment Workflow
 
-Deployment Workflow
+Developer
+     │
+     ▼
+Git Push
+     │
+     ▼
+GitHub Repository
+     │
+     ▼
+Jenkins Pipeline
+     │
+     ├── Checkout Code
+     ├── Build Docker Images
+     ├── Push Images to Amazon ECR
+     ├── Update kubeconfig
+     └── Deploy to Amazon EKS using Helm
+                  │
+                  ▼
+          Kubernetes Pods
+                  │
+                  ▼
+      CloudWatch Agent & Fluent Bit
+                  │
+                  ▼
+       Amazon CloudWatch Metrics & Logs
 
