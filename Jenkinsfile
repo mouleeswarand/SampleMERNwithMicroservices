@@ -3,11 +3,10 @@ pipeline {
 
     stages {
 
-        stage('Build Frontend') {
+        stage('List Repository') {
             steps {
-                dir('frontend') {
-                    sh 'docker build -t frontend:latest .'
-                }
+                sh 'pwd'
+                sh 'find . -type f'
             }
         }
 
