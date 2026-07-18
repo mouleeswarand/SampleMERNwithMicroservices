@@ -1317,19 +1317,3 @@ The Amazon CloudWatch Observability Add-on was successfully deployed to the EKS 
 | CloudWatch Agent  | Collects infrastructure metrics                    |
 | Fluent Bit        | Collects Kubernetes container logs                 |
 | Amazon CloudWatch | Centralized monitoring and logging                 |
-
-
-## Deployment Workflow
-
-Developer -> Git Push -> GitHub Repository -> 
-
-Jenkins Pipeline
-     │
-     ├── Checkout Code
-     ├── Build Docker Images
-     ├── Push Images to Amazon ECR
-     ├── Update kubeconfig
-     └── Deploy to Amazon EKS using Helm -> 
-     
-     Kubernetes Pods -> CloudWatch Agent & Fluent Bit -> Amazon CloudWatch Metrics & Logs
-
