@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: profile-service
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: profile-service
+
+  template:
+    metadata:
+      labels:
+        app: profile-service
+
+    spec:
+      containers:
+      - name: profile-service
+        image: public.ecr.aws/b5a0w1i5/profile-service:latest
+
+        ports:
+        - containerPort: 3002
+
+        env:
+        - name: MONGO_URL
+          value: "mongodb+srv://dmouleeswaran_db_user:3Dn8tFezX09qvY6t@cluster0.vsknysx.mongodb.net/profile"
