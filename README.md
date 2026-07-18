@@ -1,4 +1,4 @@
-# Graded Project on Orchestration and Scaling
+<img width="1209" height="84" alt="image" src="https://github.com/user-attachments/assets/f7f7b95b-ec62-47cc-8c56-29c7263d89cb" /># Graded Project on Orchestration and Scaling
 
 ## End-to-End DevOps Pipeline for MERN Streaming Application
 
@@ -109,14 +109,10 @@ Dockerfile created for React Frontend.
 Build command
 
 ```bash
-docker build -t frontend .
+docker build -t my-react-app:latest .
 ```
 
-### Screenshot
 
-**[Add Screenshot - Frontend Docker Build]**
-
----
 
 ## Hello Service Docker Image
 
@@ -125,14 +121,10 @@ Dockerfile created for Hello Service.
 Build command
 
 ```bash
-docker build -t hello .
+docker build -t hello:latest .
 ```
 
-### Screenshot
 
-**[Add Screenshot - Hello Service Docker Build]**
-
----
 
 ## Profile Service Docker Image
 
@@ -141,14 +133,10 @@ Dockerfile created for Profile Service.
 Build command
 
 ```bash
-docker build -t profile .
+docker build -t profile:latest .
 ```
 
-### Screenshot
 
-**[Add Screenshot - Profile Service Docker Build]**
-
----
 
 ## Verify Docker Images
 
@@ -158,7 +146,26 @@ docker images
 
 ### Screenshot
 
-**[Add Screenshot - Docker Images Output]**
+**[Docker Images Output]**
+
+<img width="819" height="184" alt="image" src="https://github.com/user-attachments/assets/e71f696a-f355-4101-a904-8ba592a22b5a" />
+
+## Docker output
+
+<img width="1269" height="85" alt="image" src="https://github.com/user-attachments/assets/6d0612b6-1296-46b5-90fc-130471041ba7" />
+
+**[Frontend Localhost]**
+
+<img width="1023" height="437" alt="image" src="https://github.com/user-attachments/assets/74bdae73-f5f4-4322-8878-f07eae22aeec" />
+
+**[Hello Localhost]**
+
+<img width="347" height="181" alt="image" src="https://github.com/user-attachments/assets/cb952808-5470-4e28-b19e-d084fc48ce15" />
+
+**[Profile Localhost]**
+
+<img width="373" height="195" alt="image" src="https://github.com/user-attachments/assets/b1fee120-6d6e-40a3-a7e7-108a8a8bc8eb" />
+
 
 ---
 
