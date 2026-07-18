@@ -1235,49 +1235,428 @@ Running Kubernetes Pods
 
 <img width="765" height="174" alt="image" src="https://github.com/user-attachments/assets/cbb1c8b6-3a3a-425d-8275-1fdd7a56ef47" />
 
+# Step 8
+
+## Helm
+Helm Check
+
+<img width="1662" height="731" alt="image" src="https://github.com/user-attachments/assets/1fc35b01-8576-4468-bc73-50264f44cae1" />
 
 
+# Step 9: Monitoring and Logging
 
-### Screenshot
+## Objective
 
-**[Add Screenshot - Architecture Diagram]**
+Configure monitoring and centralized logging for the Amazon EKS cluster using Amazon CloudWatch.
+
+---
+
+# 6.1 Monitoring Setup
+
+## Amazon CloudWatch Observability Add-on
+
+Installed the Amazon CloudWatch Observability add-on in the EKS cluster.
+
+Command:
+
+```bash
+aws eks create-addon \
+  --cluster-name jenkins \
+  --addon-name amazon-cloudwatch-observability \
+  --region ap-south-1
+```
+
+**Output**
+
+[CloudWatch addon installation command]
+
+<img width="976" height="125" alt="image" src="https://github.com/user-attachments/assets/9697f0bc-78cc-49e3-a851-8754a2ea3a4b" />
+
+
+---
+
+## Verify Installed Add-ons
+
+Command
+
+```bash
+aws eks list-addons \
+--cluster-name jenkins \
+--region ap-south-1
+```
+
+Expected Output
+
+```
+coredns
+kube-proxy
+metrics-server
+vpc-cni
+amazon-cloudwatch-observability
+```
+
+**Output**
+
+[aws eks list-addons]
+
+<img width="911" height="171" alt="image" src="https://github.com/user-attachments/assets/afd32f5a-0f98-4092-8a2c-65f91b5e7950" />
+
+
+---
+
+## Verify Add-on Status
+
+Command
+
+```bash
+aws eks describe-addon \
+--cluster-name jenkins \
+--addon-name amazon-cloudwatch-observability \
+--region ap-south-1
+```
+
+Expected Status
+
+{                                                                                                                          
+    "addon": {
+        "addonName": "amazon-cloudwatch-observability",
+        "clusterName": "jenkins",
+        "status": "ACTIVE",
+        "addonVersion": "v6.3.0-eksbuild.1",
+        "health": {
+            "issues": []
+        },
+        "addonArn": "arn:aws:eks:ap-south-1:562437414725:addon/jenkins/amazon-cloudwatch-observability/6acfbae0-361f-ecf7-8355-61cc32c7e80d",
+        "createdAt": "2026-07-18T20:32:52.972000+05:30",
+        "modifiedAt": "2026-07-18T20:33:39.356000+05:30",
+        "tags": {},
+        "namespaceConfig": {
+            "namespace": "amazon-cloudwatch"
+        }
+    }
+}
+
+```
+Status : ACTIVE
+```
+
+**Output**
+
+[describe-addon output]
+
+<img width="1004" height="370" alt="image" src="https://github.com/user-attachments/assets/a56a7f13-d991-4019-ad9f-8b8890f35ed2" />
+
+
+---
+
+## Verify CloudWatch Pods
+
+Command
+
+```bash
+kubectl get pods -n amazon-cloudwatch
+```
+
+Output
+
+```
+amazon-cloudwatch-observability-controller-manager
+cloudwatch-agent
+fluent-bit
+```
+
+Status
+
+```
+Running
+```
+
+**Output**
+
+kubectl get pods -n amazon-cloudwatch]
+
+<img width="861" height="160" alt="image" src="https://github.com/user-attachments/assets/3cb50d20-16e9-409a-abd3-bcba8588e32c" />
+
+
+---
+
+# 6.2 Logging Configuration
+
+Amazon CloudWatch Observability installs two major components:
+
+- CloudWatch Agent
+- Fluent Bit
+
+### CloudWatch Agent
+
+Responsible for collecting metrics from worker nodes.
+
+### Fluent Bit
+
+Responsible for collecting Kubernetes container logs and forwarding them to Amazon CloudWatch Logs.
+
+---
+
+## Verify Fluent Bit Logs
+
+Command
+
+```bash
+kubectl logs \
+-n amazon-cloudwatch \
+daemonset/fluent-bit \
+--tail=50
+```
+
+Logs confirmed that Fluent Bit is running successfully.
+
+**Output**
+
+[Fluent Bit logs]
+
+<img width="1017" height="660" alt="image" src="https://github.com/user-attachments/assets/9a678622-9b14-4c3b-8005-b019ea24e5bb" />
+
+
+---
+
+# IAM Configuration
+
+The worker node IAM role was updated by attaching the following AWS managed policy.
+
+```
+CloudWatchAgentServerPolicy
+```
+
+Verification
+
+```bash
+aws iam list-attached-role-policies \
+--role-name eksctl-jenkins-nodegroup-standard--NodeInstanceRole-Np6qITtnsAf6
+```
+
+**Output**
+
+[IAM policies]
+
+<img width="999" height="499" alt="image" src="https://github.com/user-attachments/assets/a3cb1c4a-f367-4353-b708-03d1ff9fea5c" />
+
 
 ---
 
 # Current Status
 
-| Task | Status |
-|-------|--------|
-| GitHub Repository | ✅ Completed |
-| Docker Containerization | ✅ Completed |
-| Amazon ECR Push | ✅ Completed |
-| AWS CLI | ✅ Completed |
-| Jenkins Pipeline | ✅ Completed |
-| Automatic GitHub Trigger | ✅ Completed |
-| Amazon EKS Cluster | ✅ Completed |
-| Kubernetes Deployment | ✅ Completed |
-| Rollout Verification | ✅ Completed |
-| Helm Deployment | ⏳ Pending |
-| CloudWatch Monitoring | ⏳ Pending |
-| CloudWatch Logging | ⏳ Pending |
+| Component | Status |
+|-----------|--------|
+| CloudWatch Add-on | ✅ Installed |
+| CloudWatch Agent | ✅ Running |
+| Fluent Bit | ✅ Running |
+| Metrics Collection | ✅ Running |
+| Log Forwarding | ⚠ Under Verification |
 
 ---
 
-# Future Enhancements
+## Current Issue
 
-- Deploy using Helm Charts
-- Configure Amazon CloudWatch Monitoring
-- Configure CloudWatch Container Logs
-- Horizontal Pod Autoscaler
-- Ingress Controller
-- SSL/TLS Support
+Although the CloudWatch components are successfully deployed and running, application logs are currently not visible inside CloudWatch Logs.
+
+Fluent Bit reports the following error:
+
+```
+AccessDeniedException
+Failed to create log stream
+```
+
+Investigation performed:
+
+- Verified CloudWatch Add-on status
+- Verified CloudWatch Agent Pods
+- Verified Fluent Bit Pods
+- Verified Worker Node IAM Role
+- Attached CloudWatchAgentServerPolicy
+- Restarted CloudWatch Agent
+- Restarted Fluent Bit
+
+Further IAM validation is in progress.
+
+
+<img width="1434" height="156" alt="image" src="https://github.com/user-attachments/assets/72fb87a7-6886-4e29-b780-64c7357e1e62" />
+
+<img width="1660" height="818" alt="image" src="https://github.com/user-attachments/assets/0a77bce1-c5a0-410c-8155-eed631015d95" />
+
+
+<img width="1680" height="782" alt="image" src="https://github.com/user-attachments/assets/372fde34-d057-40f2-bdd9-0a9f5cbb6f4d" />
+
+
+
 
 ---
 
-# Author
+# Monitoring Architecture
 
-**Mouleeswaran Duraisamy**
+```
+Application Pods
+        │
+        ▼
+ Fluent Bit
+        │
+        ▼
+CloudWatch Agent
+        │
+        ▼
+Amazon CloudWatch Logs
 
-PPMACD Batch-16A
+Worker Nodes
+        │
+        ▼
+CloudWatch Agent
+        │
+        ▼
+CloudWatch Metrics
+```
 
-Graded Project on Orchestration and Scaling
+
+# Commands Used
+
+List EKS Add-ons
+
+```bash
+aws eks list-addons --cluster-name jenkins --region ap-south-1
+```
+
+Describe CloudWatch Add-on
+
+```bash
+aws eks describe-addon \
+--cluster-name jenkins \
+--addon-name amazon-cloudwatch-observability \
+--region ap-south-1
+```
+
+Verify Pods
+
+```bash
+kubectl get pods -n amazon-cloudwatch
+```
+
+View Fluent Bit Logs
+
+```bash
+kubectl logs -n amazon-cloudwatch daemonset/fluent-bit --tail=50
+```
+
+Verify IAM Policies
+
+```bash
+aws iam list-attached-role-policies \
+--role-name eksctl-jenkins-nodegroup-standard--NodeInstanceRole-Np6qITtnsAf6
+```
+
+---
+
+# Conclusion
+
+The Amazon CloudWatch Observability Add-on was successfully deployed to the EKS cluster. CloudWatch Agent and Fluent Bit are running successfully on all worker nodes. Metrics collection is operational. Centralized logging is configured, and IAM permission validation is currently in progress to complete log delivery into Amazon CloudWatch Logs.
+
+
+
+
+### Screenshot
+
+**[Architecture Diagram]**
+
+                                           +---------------------------+
+                                           |        Developer          |
+                                           |      (Git Commit/Push)    |
+                                           +------------+--------------+
+                                                        |
+                                                        v
+                                         +-------------------------------+
+                                         |           GitHub              |
+                                         |  StreamingApp Repository      |
+                                         +---------------+---------------+
+                                                         |
+                                                Webhook / Poll SCM
+                                                         |
+                                                         v
+                                        +----------------------------------+
+                                        |        Jenkins CI/CD             |
+                                        |  Running on AWS EC2 Instance     |
+                                        +----------------+-----------------+
+                                                         |
+                                 +-----------------------+----------------------+
+                                 |                                              |
+                                 v                                              v
+                      Build Docker Images                              Run Pipeline
+                (Frontend + Backend Services)                  (Checkout → Build → Push)
+                                 |                                              |
+                                 +-----------------------+----------------------+
+                                                         |
+                                                         v
+                                  +---------------------------------------------+
+                                  |        Amazon Elastic Container Registry     |
+                                  |                   (Amazon ECR)              |
+                                  |---------------------------------------------|
+                                  | Frontend Image                              |
+                                  | Hello Service Image                         |
+                                  | Profile Service Image                       |
+                                  +----------------------+----------------------+
+                                                         |
+                                                         |
+                                               Pull Container Images
+                                                         |
+                                                         v
+                          +-------------------------------------------------------------+
+                          |                     Amazon EKS Cluster                       |
+                          +-------------------------------------------------------------+
+                          |                                                             |
+                          |                  Kubernetes Cluster                          |
+                          |                                                             |
+                          |  +-------------------+     +----------------------------+   |
+                          |  | Frontend Pod      |<--->| Kubernetes Service         |   |
+                          |  +-------------------+     +----------------------------+   |
+                          |                                                             |
+                          |  +-------------------+                                     |
+                          |  | Hello Service Pod |                                     |
+                          |  +-------------------+                                     |
+                          |                                                             |
+                          |  +-------------------+                                     |
+                          |  | Profile Service   |                                     |
+                          |  +-------------------+                                     |
+                          |                                                             |
+                          |          Running on Worker Nodes                           |
+                          +-------------------------------------------------------------+
+                                                         |
+                                           Deployed using Helm Charts
+                                                         |
+                                                         v
+                                   +----------------------------------+
+                                   |       Amazon CloudWatch          |
+                                   +----------------------------------+
+                                   | CloudWatch Metrics               |
+                                   | CloudWatch Agent                 |
+                                   | Fluent Bit                       |
+                                   | Container Logs                   |
+                                   | Node Metrics                     |
+                                   +----------------------------------+
+
+
+
+
+## Component Description
+| Component         | Purpose                                            |
+| ----------------- | -------------------------------------------------- |
+| GitHub            | Source code repository                             |
+| Jenkins           | Continuous Integration (Build, Test, Push, Deploy) |
+| Docker            | Containerization of Frontend and Backend           |
+| Amazon ECR        | Stores Docker images                               |
+| Amazon EKS        | Runs Kubernetes workloads                          |
+| Helm              | Deploys and manages Kubernetes applications        |
+| CloudWatch Agent  | Collects infrastructure metrics                    |
+| Fluent Bit        | Collects Kubernetes container logs                 |
+| Amazon CloudWatch | Centralized monitoring and logging                 |
+
+
+## Deployment Workflow
+
+Deployment Workflow
+
