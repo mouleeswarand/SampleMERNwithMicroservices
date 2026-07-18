@@ -90,5 +90,13 @@ pipeline {
             }
         }
 
+        stage('Check Helm') {
+            steps {
+                sh '''
+                helm version
+                '''
+            }
+        }
+
     }
 }
