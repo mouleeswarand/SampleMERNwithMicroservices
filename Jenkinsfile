@@ -69,12 +69,24 @@ pipeline {
 
         stage('Deploy to EKS') {
             steps {
-                sh '''
-                kubectl apply -f k8s/
-                kubectl rollout status deployment/frontend
-                kubectl rollout status deployment/hello-service
-                kubectl rollout status deployment/profile-service
-                '''
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'mouli-aws-creds'
+                ]]) {
+                    sh '''
+                    aws eks update-kubeconfig \
+                        --region ap-south-1 \
+                        --name jenkins
+
+                    kubectl get nodes
+
+                    kubectl apply -f k8s/
+
+                    kubectl rollout status deployment/frontend
+                    kubectl rollout status deployment/hello-service
+                    kubectl rollout status deployment/profile-service
+                    '''
+                }
             }
         }
 
