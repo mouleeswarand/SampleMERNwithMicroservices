@@ -50,9 +50,9 @@ pipeline {
         stage('Tag Images') {
             steps {
                 sh '''
-                docker tag frontend:latest public.ecr.aws/b5a0w1i5/mernservices:frontend
-                docker tag hello:latest public.ecr.aws/b5a0w1i5/mernservices:hello
-                docker tag profile:latest public.ecr.aws/b5a0w1i5/mernservices:profile
+                docker tag frontend:latest public.ecr.aws/b5a0w1i5/frontend:latest
+                docker tag hello:latest public.ecr.aws/b5a0w1i5/hello-service:latest
+                docker tag profile:latest public.ecr.aws/b5a0w1i5/profile-service:latest
                 '''
             }
         }
@@ -60,9 +60,9 @@ pipeline {
         stage('Push Images') {
             steps {
                 sh '''
-                docker push public.ecr.aws/b5a0w1i5/mernservices:frontend
-                docker push public.ecr.aws/b5a0w1i5/mernservices:hello
-                docker push public.ecr.aws/b5a0w1i5/mernservices:profile
+                docker push public.ecr.aws/b5a0w1i5/frontend:latest
+                docker push public.ecr.aws/b5a0w1i5/hello-service:latest
+                docker push public.ecr.aws/b5a0w1i5/profile-service:latest
                 '''
             }
         }
