@@ -37,7 +37,7 @@ pipeline {
             steps {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsId: 'aws-cred'
+                    credentialsId: 'mouli-aws-creds'
                 ]]) {
                     sh '''
                     aws ecr-public get-login-password --region us-east-1 | \
