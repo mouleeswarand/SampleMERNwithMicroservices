@@ -899,10 +899,9 @@ Running Kubernetes Pods
 
 <img width="765" height="174" alt="image" src="https://github.com/user-attachments/assets/cbb1c8b6-3a3a-425d-8275-1fdd7a56ef47" />
 
-# Step 8
+# Step 8: Helm
 
-## Helm
-Helm Check
+## Helm Check
 
 <img width="1662" height="731" alt="image" src="https://github.com/user-attachments/assets/1fc35b01-8576-4468-bc73-50264f44cae1" />
 
@@ -915,7 +914,7 @@ Configure monitoring and centralized logging for the Amazon EKS cluster using Am
 
 ---
 
-# 6.1 Monitoring Setup
+# Monitoring Setup
 
 ## Amazon CloudWatch Observability Add-on
 
@@ -1044,7 +1043,7 @@ kubectl get pods -n amazon-cloudwatch]
 
 ---
 
-# 6.2 Logging Configuration
+# Logging Configuration
 
 Amazon CloudWatch Observability installs two major components:
 
