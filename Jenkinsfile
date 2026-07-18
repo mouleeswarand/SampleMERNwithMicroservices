@@ -3,13 +3,11 @@ pipeline {
 
     stages {
 
-        stage('Check Environment') {
+        stage('Build Frontend') {
             steps {
-                sh 'pwd'
-                sh 'ls -la'
-                sh 'docker --version'
-                sh 'aws --version'
-                sh 'git --version'
+                dir('frontend') {
+                    sh 'docker build -t frontend:latest .'
+                }
             }
         }
 
